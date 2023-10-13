@@ -18,6 +18,18 @@ body{
 
 }
 
+
+.borderLine:hover{
+
+    border: 2px solid #eaeaea;
+    transition: border 500ms;
+    transform: scale(1.1);
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
+        
+}
+
+
 header{ 
     width: 100%; 
     height: 70px; 
@@ -25,12 +37,14 @@ header{
     display: flex;
     align-items: center;
     margin:0 auto;
-    position: relative;
+    position: fixed;
     left:0;
     top:0;
     z-index:9999;
 
     }
+
+header.changes{  background-color: rgba(0,0,0,0.6);}
 
 header .logo{
 
@@ -231,7 +245,7 @@ header nav .accountWrap .accountList .accountBox li a:hover{
     width: 100%;
     height: 350px;
     margin:0 auto;
-    margin-top:50px;
+    margin-top:100px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -242,6 +256,7 @@ header nav .accountWrap .accountList .accountBox li a:hover{
 
     width: 100%;
     height:100%;
+    position: relative;
     margin:0 auto;
     display: flex;
     align-items: center;
@@ -251,7 +266,46 @@ header nav .accountWrap .accountList .accountBox li a:hover{
 
 }
 
-#main .sliderWrap ul{
+#main .sliderWrap .mainBtn{
+
+    width: 300px;
+    height:100px;
+    position: absolute;
+    bottom:-20px;
+    right:0;
+    z-index:100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#main .sliderWrap .mainBtn ul{
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#main .sliderWrap .mainBtn ul li{
+
+    width: 10px;
+    height: 10px;
+    margin:5px;
+    background-color:rgba(188, 188, 188, 0.3);
+    border-radius: 50%;
+
+}
+
+#main .sliderWrap .mainBtn ul li:hover{
+
+    background-color:rgba(255, 255, 255, 0.3);
+}
+
+#main .sliderWrap .mainSlide{
 
     width:3000%;
     height:100%;
@@ -263,7 +317,7 @@ header nav .accountWrap .accountList .accountBox li a:hover{
 
 }
 
-#main .sliderWrap ul li{
+#main .sliderWrap .mainSlide li{
 
     width: 800px;
     height:100%;
@@ -274,10 +328,17 @@ header nav .accountWrap .accountList .accountBox li a:hover{
     display: flex;
     align-items: center;
     justify-content: center;
+    transform: translateX(2400px);
     position: relative;
 }
 
-#main .sliderWrap ul li img{
+#main .sliderWrap .mainSlide li.next{
+
+    transform: translateX(-800px);
+    transition: 800ms;
+}
+
+#main .sliderWrap .mainSlide li img{
 
      height:100%;
      position: absolute;
@@ -285,7 +346,7 @@ header nav .accountWrap .accountList .accountBox li a:hover{
 
 }
 
-#main .sliderWrap ul li .slideTitle{
+#main .sliderWrap .mainSlide li .slideTitle{
 
     height:50%;
     margin-left:40px;
@@ -353,18 +414,6 @@ header nav .accountWrap .accountList .accountBox li a:hover{
     height:120px;
 }
 
-
-.borderLine:hover{
-
-    border: 2px solid #eaeaea;
-    transition: border 500ms;
-    transform: scale(1.1);
-    transition-duration: 300ms;
-    transition-timing-function: ease-out;
-        
-}
-
-
 #bestTitle .bestBox ul li:hover video{
 
     display:block;
@@ -416,6 +465,12 @@ header nav .accountWrap .accountList .accountBox li a:hover{
 
 }
 
+#displayWrap .dpList ul li.move{
+
+    margin-left: -260px;
+    transition: 500ms;
+}
+
 #displayWrap .dpList ul li a{
 
     width: 100%;
@@ -431,3 +486,205 @@ header nav .accountWrap .accountList .accountBox li a:hover{
 
     height:110%;
 }
+
+
+/* banner */
+
+#banner{
+
+    width: 100%;
+    height: 500px;
+    margin:0 auto;
+    margin-top:100px;
+
+}
+
+#banner .bannerWrap{
+
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/banner1.jpeg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+#banner .bannerWrap ul , div{
+
+    height:100%;
+
+}
+
+#banner .bannerWrap .bannerTitle{
+    
+    width:50%;
+    height:200px;
+    background-image: url(../img/slideTitle5.png);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#banner .bannerWrap .bannerTitle .pluse{
+
+    width:100px;
+    height:50px;
+    border-radius: 4px;
+    background-color: #333;
+    border: none;
+    position: relative;
+    top:150px;
+
+}
+
+#banner .bannerWrap .bannerTitle .pluse a{
+
+    color:#eaeaea;
+    font-size: 20px;
+    letter-spacing: 3px;
+}
+
+#banner .bannerWrap .bannerTitle .pluse a:hover{
+
+    color:#fff;
+}
+
+#banner .bannerWrap .BannerContent{
+
+    width:100%;
+    height:100%;
+    margin:0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#banner .bannerWrap .bannerSlider{
+
+    width:100%;
+    height:100%;
+    margin:0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+/* 
+#banner .bannerWrap .bannerSlider.move{
+
+    margin-left:-310px;
+    transition: margin-left 1s;
+
+}  */
+
+#banner .bannerWrap .bannerSlider li{
+
+    width:260px;
+    height:350px;
+    margin-right:50px;
+
+
+}
+
+#banner .bannerWrap .bannerSlider li.move{
+
+    transform: translateX(-310px);
+    transition: 800ms;
+}
+
+#banner .bannerWrap .bannerSlider li a{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+}
+
+#banner .bannerWrap .bannerSlider li a img{
+
+    height:100%;
+    border-radius: 4px;
+}
+
+#banner .bannerWrap .bannerSlider li a img:hover{
+
+    border: 3px solid #fff;
+    transform: scale(1.08);
+    transition: 800ms;
+
+}
+
+#banner .bannerWrap .bannerBtn{
+
+    width:100px;
+    height:100%;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left:0;
+    z-index:10;
+
+}
+
+#banner .bannerWrap .bannerBtn img{
+
+    width:30px;
+    height:30px;
+    filter: invert(100%);
+    z-index:10;
+    opacity:0;
+
+}
+
+#banner .bannerWrap .bannerBtn:hover img{
+
+    opacity:1;
+    transition: 800ms;
+    cursor: pointer;
+
+}
+
+.bottomDisplay {
+
+    opacity: 0;
+    height:0px;
+}
+
+.bottomDisplay .disList{
+
+    height:0px;
+    padding: 0px;
+    opacity:0;
+
+}
+
+.bottomDisplay.more{
+
+    height:100%;
+    opacity: 1;
+    transition: 800ms;
+
+}
+
+.bottomDisplay.more .disList{
+
+    height:200px;
+    padding: 30px 0px;
+    opacity:1;
+    transition: 1s;
+}
+
