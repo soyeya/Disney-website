@@ -16,7 +16,7 @@ window.addEventListener("scroll" , () => {
 
       header.classList.remove("changes");
 
-    }
+    };
     if(scrollY >  1200){
   
       bottomDisplay.classList.add("more");
@@ -24,9 +24,9 @@ window.addEventListener("scroll" , () => {
     }else{
 
       bottomDisplay.classList.remove("more");
-    }
+    };
   
-})
+});
 
 
 const accountWrap = document.querySelector(".accountWrap");
@@ -54,10 +54,10 @@ accountOpen();
 
 //mainSlider
 
+const $main = document.getElementById("main");
 const slideContainer = document.querySelector(".sliderWrap");
 const sliderWrap = document.querySelector(".sliderWrap .mainSlide");
 const mainBtnCont = document.querySelector(".mainBtn .mainClick");
-let mainFirst = document.querySelector(".mainBtn .mainClick li:last-child");
 
 
 let mainSlideList = document.querySelectorAll(".sliderWrap .mainSlide li");
@@ -71,15 +71,102 @@ const mainslideControll = () => {
   for(var i = 0; i <  mainSlideList.length; i++ ){
 
       mainSlideList[i].setAttribute("class" , `mainslides${i}`);
-      mainBtnList[i].setAttribute("class" , `main_btn${i}`);
-
 
   };
 
-}
+};
 
 mainslideControll();
 
+
+function mainslideMoving(){
+
+  const mainSlideFrist = document.querySelector(".mainSlide li:last-child");
+  sliderWrap.prepend(mainSlideFrist);
+
+ setInterval( function(){
+
+      var $hover = $main.classList.contains("hover");
+
+      if($hover == true){
+
+        }else{
+
+          const mainSlideLast = document.querySelector(".mainSlide li:first-child");
+          sliderWrap.classList.add("next");
+
+            setTimeout(function(){
+
+              sliderWrap.append(mainSlideLast);
+              console.log(mainSlideLast);
+              sliderWrap.classList.remove("next");
+
+            },800)
+
+    };
+
+ },1500);
+};
+
+
+mainslideMoving();
+
+
+$main.addEventListener("mouseover" , function(){
+
+  $main.classList.add("hover");
+
+});
+
+$main.addEventListener("mouseout" , function(){
+
+  $main.classList.remove("hover");
+
+});
+
+
+
+const mainslidePrev = document.querySelector(".mainClick .mainslidePrev");
+const mainslideNext = document.querySelector(".mainClick .mainslideNext");
+
+
+const mainBtnmove = () => {
+
+  mainslidePrev.addEventListener("click" , function(ev){
+
+    var mainSlideFrist = document.querySelector(".mainSlide li:last-child");
+    sliderWrap.classList.add("prev");
+    console.log('prev동작');
+
+    setTimeout(function(){
+
+      sliderWrap.classList.remove("prev");
+      console.log('prev중단');
+      sliderWrap.prepend(mainSlideFrist);
+
+    },800);
+
+  });
+
+  mainslideNext.addEventListener("click" , function(ev){
+
+    var mainSlideLast = document.querySelector(".mainSlide li:first-child");
+    sliderWrap.classList.add("next");
+    console.log('next동작');
+
+    setTimeout(function(){
+
+      sliderWrap.classList.remove("next");
+      console.log('next중단');
+      sliderWrap.append(mainSlideLast);
+
+    },800);
+
+  });
+
+};
+
+mainBtnmove();
 
 
 //dispalyWrap 
@@ -206,7 +293,7 @@ const display1 = () => {
 
   movingScreen.innerHTML = display1Cont;
 
-}
+};
 
 display1();
 
@@ -223,7 +310,7 @@ const display2 = () => {
 
   movingScreen2.innerHTML = display2Cont;
 
-}
+};
 
 display2();
 
@@ -240,7 +327,7 @@ const display3 = () => {
 
   movingScreen3.innerHTML = display3Cont;
 
-}
+};
 
 display3();
 
@@ -257,7 +344,7 @@ const display4 = () => {
 
   movingScreen4.innerHTML = display4Cont;
 
-}
+};
 
 display4();
 
@@ -274,7 +361,7 @@ const display5 = () => {
 
   movingScreen5.innerHTML = display5Cont;
 
-}
+};
 
 display5();
 
@@ -291,7 +378,7 @@ const display6 = () => {
 
   movingScreen6.innerHTML = display6Cont;
 
-}
+};
 
 display6();
 
@@ -315,7 +402,7 @@ const mouseEvt = (event) => {
     console.log(currentX);
     movingScreen.style.left = '-' + currentX + 'px';
 
-  }
+  };
 
   const display1Moving = () => {
 
@@ -324,15 +411,15 @@ const mouseEvt = (event) => {
       movingScreen.addEventListener("mousemove" , mouseEvt);
   
         
-    }
+    };
   
     movingScreen.onmouseup = function(){
   
       movingScreen.removeEventListener("mousemove" ,  mouseEvt);
    
-    }
+    };
 
-  }
+  };
 
   display1Moving();
 
@@ -343,21 +430,21 @@ const mouseEvt = (event) => {
     var currentX = e.pageX;
     movingScreen2.style.left = '-' + currentX + 'px';
   
-  }
+  };
 
   const display2Moving = () => {
 
   movingScreen2.onmousedown = function(){
 
     movingScreen2.addEventListener("mousemove" , mouseEvt2)
-  }
+  };
 
   movingScreen2.onmouseup = function(){
 
     movingScreen2.removeEventListener("mousemove" , mouseEvt2)
-  }
+  };
   
-}
+};
 
 display2Moving();
 
@@ -367,21 +454,21 @@ display2Moving();
     var currentX = e.pageX;
     movingScreen3.style.left = '-' + currentX + 'px';
   
-  }
+  };
 
   const display3Moving = () => {
 
   movingScreen3.onmousedown = function(){
 
     movingScreen3.addEventListener("mousemove" , mouseEvt3)
-  }
+  };
 
   movingScreen3.onmouseup = function(){
 
     movingScreen3.removeEventListener("mousemove" , mouseEvt3)
-  }
+  };
   
-}
+};
 
 display3Moving();
 
@@ -392,7 +479,7 @@ display3Moving();
     var currentX = e.pageX;
     movingScreen4.style.left = '-' + currentX + 'px';
   
-  }
+  };
 
   const display4Moving = () => {
 
@@ -400,14 +487,14 @@ display3Moving();
 
     movingScreen4.addEventListener("mousemove" , mouseEvt4)
 
-  }
+  };
 
   movingScreen4.onmouseup = function(){
 
     movingScreen4.removeEventListener("mousemove" , mouseEvt4)
-  }
+  };
   
-}
+};
 
 display4Moving();
 
@@ -416,7 +503,7 @@ display4Moving();
     var currentX = e.pageX;
     movingScreen5.style.left = '-' + currentX + 'px';
   
-  }
+  };
 
   const display5Moving = () => {
 
@@ -424,14 +511,14 @@ display4Moving();
 
     movingScreen5.addEventListener("mousemove" , mouseEvt5)
 
-  }
+  };
 
   movingScreen5.onmouseup = function(){
 
     movingScreen5.removeEventListener("mousemove" , mouseEvt5)
-  }
+  };
   
-}
+};
 
 display5Moving();
 
@@ -440,7 +527,7 @@ display5Moving();
     var currentX = e.pageX;
     movingScreen6.style.left = '-' + currentX + 'px';
   
-  }
+  };
 
   const display6Moving = () => {
 
@@ -448,14 +535,14 @@ display5Moving();
 
     movingScreen6.addEventListener("mousemove" , mouseEvt6)
 
-  }
+  };
 
   movingScreen6.onmouseup = function(){
 
     movingScreen6.removeEventListener("mousemove" , mouseEvt6)
-  }
+  };
   
-}
+};
 
 display6Moving();
 
@@ -482,7 +569,7 @@ display6Moving();
 
          BannerSlides[i].classList.add("move");
 
-      } else{}
+      } else{};
 
     };
             
@@ -494,7 +581,7 @@ display6Moving();
       BannerSlides[i].classList.remove("move");
       BannerSlider.append(last);
 
-      }
+      };
 
     },800);
 
