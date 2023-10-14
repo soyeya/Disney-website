@@ -1,3 +1,21 @@
+
+const resizeEvt = () => {
+
+   const window_width = window.innerWidth;
+   console.log(window_width);
+
+}
+
+ resizeEvt();
+
+
+ window.addEventListener("resize" , function(){
+
+   console.log("resize");
+   resizeEvt();
+
+ });
+
 const header = document.querySelector("header");
 const htmlHeight = document.querySelector("html");
 const bottomDisplay = document.querySelector(".bottomDisplay");
